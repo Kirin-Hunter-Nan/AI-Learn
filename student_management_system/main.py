@@ -1,7 +1,11 @@
-import database_operation
 import student
 import teacher
 import admin
+from database_operation import Student, Teacher, Admin
+
+student_instance = Student()
+teacher_instance = Teacher()
+admin_instance = Admin()
 
 
 print("-------------------Student Management System-------------------")
@@ -21,7 +25,7 @@ if user_input == "1":
     student_id = input("Enter your student ID: ")
     student_password = input("Enter your student password: ")
 
-    if student_password == database_operation.student_password_compared(student_password):
+    if student_password == student_instance.get_password(student_password):
         student.student_window(student_id)
 
     else:
@@ -38,7 +42,7 @@ if user_input == "2":
     teacher_id = input("Enter your teacher ID: ")
     teacher_password = input("Enter your teacher password: ")
 
-    if teacher_password == database_operation.teacher_password_compared(teacher_id):
+    if teacher_password == teacher_instance.get_password(teacher_id):
         teacher.teacher_window(teacher_id)
 
     else:
@@ -55,7 +59,7 @@ if user_input == "3":
     admin_id = input("Enter your admin ID: ")
     admin_password = input("Enter your admin password: ")
 
-    if admin_password == database_operation.admin_password_compared(admin_id):
+    if admin_password == admin_instance.get_password(admin_id):
         admin.admin_window(admin_id)
 
     else:
