@@ -85,7 +85,7 @@ class Admin:
         get the password of admin and compared it in main.py for admin logging in
         """
         get_password = """
-        
+
         select admin_password from admin where admin_id = %s"""
 
         self.cursor.execute(get_password, admin_id)
@@ -99,13 +99,31 @@ class Admin:
         show the information of the admin
         """
         show_information = """
-        
+
         select admin_id, admin_name, admin_phone from admin where admin_id = %s"""
 
         self.cursor.execute(show_information, admin_id)
         result: tuple = cursor.fetchall()
         for r in result:
             return r
+
+    # def student_system(self, choice, id):
+    #     """
+    #     this is for admin to operate the information of student
+    #     :param choice:
+    #     :return:
+    #     """
+    #     if choice == "1":
+    #         show_information = """
+    #
+    #         select stu_id, stu_name, stu_phone, stu_class from student where stu_id = %s"""
+    #
+    #         self.cursor.execute(show_information, id)
+    #
+    #     if choice == "2":
+    #         insert
+
+
 
     def show_student_information(self, id):
         """
@@ -114,7 +132,7 @@ class Admin:
         """
 
         show_information = """
-        
+
         select stu_id, stu_name, stu_phone, stu_class from student where stu_id = %s"""
 
         self.cursor.execute(show_information, id)
@@ -127,7 +145,7 @@ class Admin:
         """
 
         show_information = """
-        
+
         select tea_id, tea_name, tea_phone, tea_class from teacher where tea_id = %s"""
 
         self.cursor.execute(show_information, id)
@@ -137,7 +155,7 @@ class Admin:
         insert the information of a student
         """
         insert_information = """
-        
+
         insert into student (id, stu_id, stu_name, stu_phone, stu_class, stu_password) values (NULL, %s, %s, %s, %s, %s)"""
 
         values = values.split(',')
@@ -148,7 +166,7 @@ class Admin:
         insert the information of a teacher
         """
         insert_information = """
-        
+
         insert into teacher (id, tea_id, tea_name, tea_phone, tea_class, tea_password) values (NULL, %s, %s, %s, %s ,%s)"""
 
         values = values.split(',')
@@ -165,7 +183,7 @@ class Admin:
         # update the student name in the database
         if choice == "1 ":
             update_information = """
-            
+
             update student set stu_name = %s where stu_id = %s"""
 
             values = (new_information, stu_id)
@@ -174,7 +192,7 @@ class Admin:
         # update the student iphone in the database
         if choice == "2":
             update_information = """
-            
+
             update student set stu_phone = %s where stu_id = %s"""
 
             values = (new_information, stu_id)
@@ -183,7 +201,7 @@ class Admin:
         # update the student class in the database
         if choice == "3":
             update_information = """
-            
+
             update student set stu_class = %s where stu_id = %s"""
 
             values = (new_information, stu_id)
@@ -192,7 +210,7 @@ class Admin:
         # update the student password in the database
         if choice == "4":
             update_information = """
-            
+
             update student set stu_password = %s where stu_id = %s"""
 
             values = (new_information, stu_id)
@@ -209,7 +227,7 @@ class Admin:
 
         if choice == "1":
             update_information = """
-            
+
             update teacher set tea_name = %s where tea_id = %s"""
 
             values = (new_information, tea_id)
@@ -217,7 +235,7 @@ class Admin:
 
         if choice == "2":
             update_information = """
-            
+
             update teacher set tea_phone = %s where tea_id = %s"""
 
             values = (new_information, tea_id)
@@ -225,7 +243,7 @@ class Admin:
 
         if choice == "3":
             update_information = """
-            
+
             update teacher set tea_class = %s where tea_id = %s"""
 
             values = (new_information, tea_id)
@@ -233,7 +251,7 @@ class Admin:
 
         if choice == "4":
             update_information = """
-            
+
             update teacher set tea_password = %s where tea_id = %s"""
 
             values = (new_information, tea_id)
@@ -246,7 +264,7 @@ class Admin:
 
         if choice == "1":
             update_information = """
-            
+
             update admin set admin_name = %s where admin_id = %s"""
 
             values = (new_information, admin_id)
@@ -254,7 +272,7 @@ class Admin:
 
         if choice == "2":
             update_information = """
-            
+
             update admin set admin_phone = %s where admin_id = %s"""
 
             values = (new_information, admin_id)
@@ -262,7 +280,7 @@ class Admin:
 
         if choice == "3":
             update_information = """
-            
+
             update admin set admin_password = %s where admin_id = %s"""
 
             values = (new_information, admin_id)
@@ -281,14 +299,14 @@ class Admin:
         """
         if choice == "1":
             delete_information = """
-            
+
             delete from student where stu_id = %s"""
 
             self.cursor.execute(delete_information, id)
 
         if choice == "2":
             delete_information = """
-            
+
             delete from teacher where tea_id = %s"""
 
             self.cursor.execute(delete_information, id)
