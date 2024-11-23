@@ -189,7 +189,7 @@ class Admin:
             values = (new_information, stu_id)
             self.cursor.execute(update_information, values)
 
-        # update the student iphone in the database
+        # update the student phone number in the database
         if choice == "2":
             update_information = """
 
