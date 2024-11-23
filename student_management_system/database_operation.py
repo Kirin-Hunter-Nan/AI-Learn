@@ -160,7 +160,7 @@ class Admin:
 
         values = values.split(',')
         self.cursor.execute(insert_information, values)
-
+        return True
     def insert_teacher_information(self, values):
         """
         insert the information of a teacher
@@ -171,6 +171,7 @@ class Admin:
 
         values = values.split(',')
         self.cursor.execute(insert_information, values)
+        return True
 
     def update_student_information(self, choice, stu_id, new_information, ):
         """

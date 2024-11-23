@@ -22,15 +22,15 @@ def admin_window(admin_id):
         print("2. Insert a student")
         print("3. Change the information of a student")
         print("4. Drop a student")
-        choice_stu = input()
+        choice_stu = input("Enter your choice:")
         #show the information of student
         if choice_stu == "1":
             stu_id = input("Enter the student id:")
             print(admin_instance.show_student_information(stu_id))
         #insert a student information
         if choice_stu == "2":
-            stu_value = input("Enter the student information")
-            if admin_instance.insert_student_information(stu_value):
+            stu_value = input("Enter the student information:")
+            if admin_instance.insert_student_information(stu_value) == True:
                 print("Insert successfully!")
             else:
                 print("Insert unsuccessfully, please insert again!")
@@ -60,19 +60,20 @@ def admin_window(admin_id):
                 stu_value = input("Enter the new password of a student:")
                 admin_instance.update_student_information(operate, stu_id, stu_value)
 
-    if choice == "2":
-        print("Which operation do you want to do:")
-        print("1. Show the information of a teacher")
-        print("2. Insert a teacher")
-        print("3. Change the information of a teacher")
-        print("4. Drop a teacher")
-
-        choice_tea = input()
-        if choice_tea == "1":
-
-        if choice_tea == "2":
-
-        if choice_tea == "3":
-
-        if choice_tea == "4":
+    # if choice == "2":
+    #     print("Which operation do you want to do:")
+    #     print("1. Show the information of a teacher")
+    #     print("2. Insert a teacher")
+    #     print("3. Change the information of a teacher")
+    #     print("4. Drop a teacher")
+    #
+    #     choice_tea = input()
+    #     if choice_tea == "1":
+    #
+    #
+    #     if choice_tea == "2":
+    #
+    #     if choice_tea == "3":
+    #
+    #     if choice_tea == "4":
 
